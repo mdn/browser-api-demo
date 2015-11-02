@@ -56,12 +56,12 @@ browser.addEventListener('mozbrowserloadend',function() {
   stopReload.textContent = 'R'; 
 });
 
-browser.addEventListener('mozbrowserlocationchange', function (event) {
-  urlBar.value = event.detail;
+browser.addEventListener('mozbrowserlocationchange', function (e) {
+  urlBar.value = e.detail;
 });
 
-browser.addEventListener('mozbrowsererror', function (event) {
-  console.log("Loading error: " + event.detail);
+browser.addEventListener('mozbrowsererror', function (e) {
+  console.log("Loading error: " + e.detail);
 });
 
 // function definitions
