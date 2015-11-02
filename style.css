@@ -1,0 +1,64 @@
+html, body {
+	margin: 0;
+}
+
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+	width: 100%;
+	height: inherit;
+}
+
+iframe {
+	width: 100%;
+	height: calc(100% - 47px);
+	border: 0;
+}
+
+.controls {
+  	width: 100%;
+	height: 40px;
+	padding: 1px 0;
+	display: flex;
+	flex-flow: row;
+}
+
+button {
+	font-size: 24px;
+	line-height: 16px;
+	border: 0;
+	border-radius: none;
+	padding: 0 5px;
+	margin: 0 1px;
+	flex: 1 32px;
+	position: relative;
+	bottom: 1px;
+	background-image: linear-gradient(to bottom, rgba(0,0,0,0.3),rgba(0,0,0,0));
+	background-color: #ccc;
+}
+
+button:hover {
+	background-color: #ddd;
+}
+
+button:active {
+	background-color: #eee;
+}
+
+form {
+	height: 40px;
+}
+
+input {
+	display: inline-block;
+	font-size: 16px;
+	line-height: 1;
+	height: 35px;
+	margin: 1px 1px 1px;
+	flex: 6;
+	position: relative;
+	bottom: 1px;
+}
