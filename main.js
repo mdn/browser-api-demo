@@ -14,7 +14,6 @@ var zoomFactor = 1;
 
 back.addEventListener('touchend',function() {
   browser.goBack();
-
 });
 
 fwd.addEventListener('touchend',function() {
