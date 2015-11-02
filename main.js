@@ -57,7 +57,7 @@ browser.addEventListener('mozbrowserloadend',function() {
 });
 
 browser.addEventListener('mozbrowserlocationchange', function (event) {
-  url.value = event.detail;
+  urlBar.value = event.detail;
 });
 
 browser.addEventListener('mozbrowsererror', function (event) {
