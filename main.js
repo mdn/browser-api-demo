@@ -74,7 +74,7 @@ searchToggle.addEventListener('touchend',function() {
 
 searchForm.addEventListener('submit',function(e) {
   e.preventDefault();
-  browser.findAll(searchBar.value, "case-sensitive");
+  browser.findAll(searchBar.value, 'case-sensitive');
   searchActive = true;
   prev.disabled = false;
   next.disabled = false;
@@ -82,11 +82,11 @@ searchForm.addEventListener('submit',function(e) {
 });
 
 prev.addEventListener('touchend',function() {
-  browser.findNext("backward");
+  browser.findNext('backward');
 });
 
 next.addEventListener('touchend',function() {
-  browser.findNext("forward");
+  browser.findNext('forward');
 });
 
 //browser.addEventListener('mozbrowserfindchange', function(e) {
