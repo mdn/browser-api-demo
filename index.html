@@ -14,9 +14,12 @@
   </head>
 
   <body>
-    <iframe src="about:blank" mozbrowser></iframe>
+    <iframe src="http://mozilla.org" mozbrowser></iframe>
     <div class="controls">
-      <button class="back">&lt;</button><button class="forward">&gt;</button><form><input type="text"></form><button class="stop-reload">R</button><button class="zoom-in">+</button><button class="zoom-out">-</button>
+      <button class="back">&lt;</button><button class="forward">&gt;</button><form class="urlForm"><input type="text"></form><button class="stop-reload">R</button><button class="zoom-in">+</button><button class="zoom-out">-</button>
+    </div>
+    <div class="search">
+      <button class="prev">&lt;</button><button class="next">&gt;</button><form class="searchForm"><input type="text"></form><button class="searchToggle">S</button>
     </div>
     <script src="main.js"></script>
   </body>

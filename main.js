@@ -2,11 +2,18 @@ var browser = document.querySelector('iframe');
 
 var back = document.querySelector('.back');
 var fwd = document.querySelector('.forward');
-var urlBar = document.querySelector('input');
-var urlForm = document.querySelector('form');
+var urlBar = document.querySelector('.urlForm input');
+var urlForm = document.querySelector('.urlForm');
 var stopReload = document.querySelector('.stop-reload');
 var zoomIn = document.querySelector('.zoom-in');
 var zoomOut = document.querySelector('.zoom-out');
+
+var search = document.querySelector('.search');
+var prev = document.querySelector('.prev');
+var next = document.querySelector('.next');
+var searchBar = document.querySelector('.searchForm input');
+var searchForm = document.querySelector('.searchForm');
+var searchToggle = document.querySelector('.searchToggle');
 
 var zoomFactor = 1;
 
@@ -43,6 +50,48 @@ zoomOut.addEventListener('touchend',function() {
   zoomFactor -= 0.1;
   browser.zoom(zoomFactor);
 });
+
+// search-related event listeners
+
+var searchActive = false;
+prev.disabled = true;
+next.disabled = true;
+
+searchToggle.addEventListener('touchend',function() {
+  if(search.getAttribute('class') === 'search') {
+    search.setAttribute('class', 'search shifted');
+  } else if(search.getAttribute('class') === 'search shifted') {
+    search.setAttribute('class', 'search');
+    if(searchActive) {
+      browser.clearMatch();
+      searchActive = false;
+      prev.disabled = true;
+      next.disabled = true;
+      searchBar.value = '';
+    } 
+  }
+});
+
+searchForm.addEventListener('submit',function(e) {
+  e.preventDefault();
+  browser.findAll(searchBar.value, "case-sensitive");
+  searchActive = true;
+  prev.disabled = false;
+  next.disabled = false;
+  searchBar.blur();
+});
+
+prev.addEventListener('touchend',function() {
+  browser.findNext("backward");
+});
+
+next.addEventListener('touchend',function() {
+  browser.findNext("forward");
+});
+
+//browser.addEventListener('mozbrowserfindchange', function(e) {
+ // can react to find changes if required
+//})
 
 // browser-related event listeners
 
