@@ -1,6 +1,6 @@
 {
   "name": "BrowserDemo",
-  "description": "Browser app demo for MDN Browser API documentation",
+  "description": "Browser app demo for MDN Browser API documentation; this is just a test!",
   "launch_path": "/index.html",
   "type": "privileged",
   "icons": {
@@ -13,6 +13,8 @@
   },
   "default_locale": "en",
   "permissions": {
-    "browser": {}
+    "browser": {
+      "description" : "Allows an iframe element to be turned into an embedded web browser"
+    }
   }
 }

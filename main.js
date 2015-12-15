@@ -1,4 +1,5 @@
 var browser = document.querySelector('iframe');
+var controls = document.querySelector('.controls');
 
 var back = document.querySelector('.back');
 var fwd = document.querySelector('.forward');
@@ -99,10 +100,12 @@ browser.addEventListener('mozbrowserloadstart',function() {
   stopReload.textContent = 'x'; 
 });
 
-browser.addEventListener('mozbrowserloadend',function() {
+browser.addEventListener('mozbrowserloadend',function(e) {
   canMoveBwd();
   canMoveFwd();
-  stopReload.textContent = 'R'; 
+  stopReload.textContent = 'R';
+  console.log(e.detail.backgroundColor);
+  controls.style.background = e.detail.backgroundColor;
 });
 
 browser.addEventListener('mozbrowserlocationchange', function (e) {
