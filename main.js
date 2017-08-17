@@ -20,13 +20,17 @@ var zoomFactor = 1;
 
 // controls-related event listeners
 
-back.addEventListener('touchend',function() {
+function onBackPress() {
   browser.goBack();
-});
+};
+back.addEventListener('touchend', onBackPress);
+back.addEventListener('click', onBackPress);
 
-fwd.addEventListener('touchend',function() {
+function onFwdPress() {
   browser.goForward();
-});
+};
+fwd.addEventListener('touchend', onFwdPress);
+fwd.addEventListener('click', onFwdPress);
 
 urlForm.addEventListener('submit',function(e) {
   e.preventDefault();
@@ -34,23 +38,29 @@ urlForm.addEventListener('submit',function(e) {
   urlBar.blur();
 });
 
-stopReload.addEventListener('touchend',function() {
+function onStopReloadPress() {
   if(stopReload.textContent === 'x') {
     browser.stop();
   } else {
     browser.reload();
   }
-});
+};
+stopReload.addEventListener('touchend', onStopReloadPress);
+stopReload.addEventListener('click', onStopReloadPress);
 
-zoomIn.addEventListener('touchend',function() {
+function onZoomInPress() {
   zoomFactor += 0.1;
   browser.zoom(zoomFactor);
-});
+};
+zoomIn.addEventListener('touchend', onZoomInPress);
+zoomIn.addEventListener('click', onZoomInPress);
 
-zoomOut.addEventListener('touchend',function() {
+function onZoomOutPress() {
   zoomFactor -= 0.1;
   browser.zoom(zoomFactor);
-});
+};
+zoomOut.addEventListener('touchend', onZoomOutPress);
+zoomOut.addEventListener('click', onZoomOutPress);
 
 // search-related event listeners
 
@@ -58,7 +68,7 @@ var searchActive = false;
 prev.disabled = true;
 next.disabled = true;
 
-searchToggle.addEventListener('touchend',function() {
+function onSearchTogglePress() {
   if(search.getAttribute('class') === 'search') {
     search.setAttribute('class', 'search shifted');
   } else if(search.getAttribute('class') === 'search shifted') {
@@ -71,7 +81,9 @@ searchToggle.addEventListener('touchend',function() {
       searchBar.value = '';
     } 
   }
-});
+};
+searchToggle.addEventListener('touchend', onSearchTogglePress);
+searchToggle.addEventListener('click', onSearchTogglePress);
 
 searchForm.addEventListener('submit',function(e) {
   e.preventDefault();
@@ -82,13 +94,17 @@ searchForm.addEventListener('submit',function(e) {
   searchBar.blur();
 });
 
-prev.addEventListener('touchend',function() {
+function onFindBackwardPress() {
   browser.findNext('backward');
-});
+};
+prev.addEventListener('touchend', onFindBackwardPress);
+prev.addEventListener('click', onFindBackwardPress);
 
-next.addEventListener('touchend',function() {
+function onFindForwardPress() {
   browser.findNext('forward');
-});
+};
+next.addEventListener('touchend', onFindForwardPress);
+next.addEventListener('click', onFindForwardPress);
 
 //browser.addEventListener('mozbrowserfindchange', function(e) {
  // can react to find changes if required
