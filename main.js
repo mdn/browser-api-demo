@@ -109,7 +109,7 @@ browser.addEventListener('mozbrowserloadend',function(e) {
 });
 
 browser.addEventListener('mozbrowserlocationchange', function (e) {
-  urlBar.value = e.detail;
+  urlBar.value = e.detail.url;
 });
 
 browser.addEventListener('mozbrowsererror', function (e) {
